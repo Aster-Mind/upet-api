@@ -9,6 +9,8 @@ namespace UpetApi.Helpers
         public MapperProfile()
         {
             CreateMap<Users, UsersDTO>().ReverseMap();
+            CreateMap<UserCreacionDTO, Users>().ReverseMap();
+            CreateMap<LoginUserDTO, Users>();
         }
     }
 }
