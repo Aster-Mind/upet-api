@@ -13,6 +13,8 @@ namespace UpetApi
         public DbSet<Users> Users { get; set; }
         public DbSet<OngUsers> OngUsers { get; set; }
         public DbSet <Sede> Sedes { get; set; }
+        public DbSet <Raza> Razas{ get; set; }
+        public DbSet<Mascota> Mascotas { get; set; }
 
     }
 }

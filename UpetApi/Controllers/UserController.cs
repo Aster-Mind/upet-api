@@ -71,7 +71,7 @@ namespace UpetApi.Controllers
         }
 
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("delete/{id:int}")]
         public async Task<ActionResult> Delete(int Id)
         {
             var existe = await context.Users.AnyAsync(x => x.id == Id);
