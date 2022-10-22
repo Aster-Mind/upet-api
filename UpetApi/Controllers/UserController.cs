@@ -10,7 +10,7 @@ namespace UpetApi.Controllers
 {
 
     [ApiController]
-    [Route("api/user")]
+    [Route("api/users")]
     public class UserController:ControllerBase
     {
         private readonly ApplicationDbContext context;
