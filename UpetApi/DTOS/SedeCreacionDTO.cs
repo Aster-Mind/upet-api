@@ -38,7 +38,7 @@ namespace UpetApi.DTOS
         public int numeroExterior { get; set; }
 
         public int numeroInterior { get; set; }
-        [Required]
-        public int ongId { get; set; }
+        //[Required]
+        //public int ongId { get; set; }
     }
 }

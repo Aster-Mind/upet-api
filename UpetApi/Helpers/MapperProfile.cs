@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using UpetApi.DTOS;
 using UpetApi.Entidades;
+using UpetApi.Migrations;
 
 namespace UpetApi.Helpers
 {
@@ -21,6 +22,9 @@ namespace UpetApi.Helpers
 
             CreateMap<Mascota, MascotasDTO>().ReverseMap();
             CreateMap<MascotasCreacionDTO, Mascota>().ReverseMap();
+
+            CreateMap<OngUsers, OngsDTo>().ReverseMap();
+            CreateMap<OngCreacionDTO, OngUsers>().ReverseMap();
         }
     }
 }
