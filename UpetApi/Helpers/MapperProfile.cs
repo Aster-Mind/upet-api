@@ -14,6 +14,10 @@ namespace UpetApi.Helpers
 
             CreateMap<Sede, SedesDTO>().ReverseMap();
             CreateMap<SedeCreacionDTO, Sede>().ReverseMap();
+
+
+            CreateMap<Raza, RazaDTO>().ReverseMap();
+            CreateMap<RazaCreacionDTO, Raza>().ReverseMap();
         }
     }
 }

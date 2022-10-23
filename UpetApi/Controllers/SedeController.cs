@@ -69,12 +69,12 @@ namespace UpetApi.Controllers
         }
 
         [HttpDelete("delete/{id:int}")]
-        public async Task<ActionResult> Delete(int Id)
+        public async Task<ActionResult> Delete(int id)
         {
-            var existe = await context.Sedes.AnyAsync(x => x.id == Id);
+            var existe = await context.Sedes.AnyAsync(x => x.id == id);
             if (!existe) return NotFound();
 
-            context.Remove(new Sede() { id = Id });
+            context.Remove(new Sede() { id = id });
             await context.SaveChangesAsync();
 
             return NoContent();
