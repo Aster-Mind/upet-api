@@ -9,6 +9,9 @@ namespace UpetApi.Entidades
 
         [Required]
         [StringLength(40)]
+        public string nombre { get; set; }
+        [Required]
+        [StringLength(40)]
         public string tipo { get; set; }
         [Required]
         [StringLength(40)]
