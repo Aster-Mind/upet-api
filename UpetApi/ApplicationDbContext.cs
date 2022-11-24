@@ -15,6 +15,9 @@ namespace UpetApi
         public DbSet <Sede> Sedes { get; set; }
         public DbSet <Raza> Razas{ get; set; }
         public DbSet<Mascota> Mascotas { get; set; }
+        public DbSet<Visitas> Visitas { get; set; }
+        public DbSet<Contacto> Contactos { get; set; }
+        public DbSet<organizacion> Organizacions { get; set; }
 
     }
 }

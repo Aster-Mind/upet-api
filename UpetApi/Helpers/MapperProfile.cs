@@ -25,6 +25,8 @@ namespace UpetApi.Helpers
 
             CreateMap<OngUsers, OngsDTo>().ReverseMap();
             CreateMap<OngCreacionDTO, OngUsers>().ReverseMap();
+
+
         }
     }
 }

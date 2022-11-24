@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UpetApi;
 
@@ -11,9 +12,11 @@ using UpetApi;
 namespace UpetApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221114001744_passong")]
+    partial class passong
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,27 +61,6 @@ namespace UpetApi.Migrations
                     b.Property<bool>("adoptado")
                         .HasColumnType("bit");
 
-                    b.Property<string>("color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("duenoFoto")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("duenoHistoria")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("duenoNombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("edad")
-                        .HasColumnType("int");
-
-                    b.Property<string>("genero")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("historia")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("imagen")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -88,8 +70,8 @@ namespace UpetApi.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<string>("peso")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("orgId")
+                        .HasColumnType("int");
 
                     b.Property<string>("raza")
                         .IsRequired()
@@ -100,9 +82,6 @@ namespace UpetApi.Migrations
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
-
-                    b.Property<string>("ubicacion")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -340,12 +319,6 @@ namespace UpetApi.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("historia")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("imagen")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("link")
                         .HasColumnType("nvarchar(max)");
 
@@ -374,9 +347,6 @@ namespace UpetApi.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("telefono")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("usuario")
                         .IsRequired()

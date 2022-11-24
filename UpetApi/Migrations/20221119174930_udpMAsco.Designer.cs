@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UpetApi;
 
@@ -11,9 +12,11 @@ using UpetApi;
 namespace UpetApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221119174930_udpMAsco")]
+    partial class udpMAsco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,9 +75,6 @@ namespace UpetApi.Migrations
 
                     b.Property<int>("edad")
                         .HasColumnType("int");
-
-                    b.Property<string>("genero")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("historia")
                         .HasColumnType("nvarchar(max)");

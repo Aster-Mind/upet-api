@@ -29,6 +29,28 @@ namespace UpetApi.Controllers
 
             var dtos = mapper.Map<List<MascotasDTO>>(entidades);
 
+
+            var existeV = await context.Visitas.FirstOrDefaultAsync(x => x.mes == DateTime.Today.Month.ToString());
+            if (existeV != null)
+            {
+                existeV.visitas += 1;
+              
+            }
+            else
+            {
+                Visitas visita = new Visitas();
+
+                visita.visitas = 1;
+                visita.mes = DateTime.Today.Month.ToString();
+
+                context.Add(visita);
+
+
+            }
+
+            await context.SaveChangesAsync();
+        
+
             return dtos;
         }
 
@@ -84,6 +106,39 @@ namespace UpetApi.Controllers
             await context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+
+        [HttpGet("get")]
+        public async Task<ActionResult<List<Mascota>>> Get2()
+        {
+            var entidades = await context.Mascotas.ToListAsync();
+
+            //var dtos = mapper.Map<List<MascotasDTO>>(entidades);
+
+
+            var existeV = await context.Visitas.FirstOrDefaultAsync(x => x.mes == DateTime.Today.Month.ToString());
+            if (existeV != null)
+            {
+                existeV.visitas += 1;
+
+            }
+            else
+            {
+                Visitas visita = new Visitas();
+
+                visita.visitas = 1;
+                visita.mes = DateTime.Today.Month.ToString();
+
+                context.Add(visita);
+
+
+            }
+
+            await context.SaveChangesAsync();
+
+
+            return entidades;
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UpetApi;
 
@@ -11,9 +12,11 @@ using UpetApi;
 namespace UpetApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221112210518_Contacto")]
+    partial class Contacto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,31 +24,6 @@ namespace UpetApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("UpetApi.Entidades.Contacto", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<string>("correo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("mensaje")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Contactos");
-                });
 
             modelBuilder.Entity("UpetApi.Entidades.Mascota", b =>
                 {
@@ -58,27 +36,6 @@ namespace UpetApi.Migrations
                     b.Property<bool>("adoptado")
                         .HasColumnType("bit");
 
-                    b.Property<string>("color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("duenoFoto")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("duenoHistoria")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("duenoNombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("edad")
-                        .HasColumnType("int");
-
-                    b.Property<string>("genero")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("historia")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("imagen")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -87,9 +44,6 @@ namespace UpetApi.Migrations
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
-
-                    b.Property<string>("peso")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("raza")
                         .IsRequired()
@@ -100,9 +54,6 @@ namespace UpetApi.Migrations
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
-
-                    b.Property<string>("ubicacion")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -307,88 +258,6 @@ namespace UpetApi.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Visitas");
-                });
-
-            modelBuilder.Entity("UpetApi.Entidades.organizacion", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<string>("calle")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("codigoPostal")
-                        .HasColumnType("int");
-
-                    b.Property<string>("colonia")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("correo")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("estado")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("historia")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("imagen")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("link")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("municipio")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("nombre")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("numeroExterior")
-                        .HasColumnType("int");
-
-                    b.Property<int>("numeroInterior")
-                        .HasColumnType("int");
-
-                    b.Property<string>("pais")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("password")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("telefono")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("usuario")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<bool>("verificado")
-                        .HasColumnType("bit");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Organizacions");
                 });
 
             modelBuilder.Entity("UpetApi.Entidades.Sede", b =>
